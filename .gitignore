@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+models/*.npz
+models/*.json
+.DS_Store

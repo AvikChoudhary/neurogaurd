@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroGuard Console</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237cc4ff'/%3E%3Cpath d='M16 6l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V9z' fill='none' stroke='%2306101c' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='15' r='2.6' fill='%2306101c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/console.css">
+</head>
+<body class="console">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.700 3.900a2 2 0 00-3.400 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+      <symbol id="i-radio" viewBox="0 0 24 24"><path d="M5 12.500a10 10 0 0114 0M8.500 16a5 5 0 017 0M12 20h.01M2 9a15 15 0 0120 0"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2L3 14h8l-1 8 10-12h-8z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.300-4.300"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.600 5.600l12.800 12.800"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.700L21 8M21 3v5h-5"/></symbol>
+      <symbol id="i-dos" viewBox="0 0 24 24"><path d="M2 8c2.500-2 4.500-2 7 0s4.500 2 7 0 4.500-2 6 0M2 14c2.500-2 4.500-2 7 0s4.500 2 7 0 4.500-2 6 0M2 20c2.500-2 4.500-2 7 0s4.500 2 7 0 4.500-2 6 0"/></symbol>
+      <symbol id="i-portscan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 12l6-6"/></symbol>
+      <symbol id="i-bruteforce" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></symbol>
+      <symbol id="i-webattack" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></symbol>
+      <symbol id="i-botnet" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 14h.01M15 14h.01"/></symbol>
+      <symbol id="i-exfil" viewBox="0 0 24 24"><path d="M12 21V9M7 14l5-5 5 5M4 3h16"/></symbol>
+      <symbol id="i-infiltration" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.500"/><circle cx="19" cy="6" r="2.500"/><circle cx="19" cy="18" r="2.500"/><path d="M7.300 11l9.400-4M7.300 13l9.400 4"/></symbol>
+      <symbol id="i-zeroday" viewBox="0 0 24 24"><path d="M12 2l2.500 7.500L22 12l-7.500 2.500L12 22l-2.500-7.500L2 12l7.500-2.500z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="app">
+    <aside class="rail" id="rail">
+      <a class="brand" href="/" title="Back to the website">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#7cc4ff"/><path d="M16 6l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V9z" fill="none" stroke="#06101c" stroke-width="2.4" stroke-linejoin="round"/><circle cx="16" cy="15" r="2.6" fill="#06101c"/></svg>
+        <span>NeuroGuard</span>
+      </a>
+      <nav id="nav" aria-label="Console sections">
+        <div class="grp">Monitor</div>
+        <a href="#/overview" data-r="overview"><svg class="ic"><use href="#i-grid"/></svg>Overview</a>
+        <a href="#/traffic" data-r="traffic"><svg class="ic"><use href="#i-activity"/></svg>Live traffic</a>
+        <a href="#/incidents" data-r="incidents"><svg class="ic"><use href="#i-alert"/></svg>Incidents<span class="count" id="nav-inc" hidden></span></a>
+        <div class="grp">Demo tools</div>
+        <a href="#/simulator" data-r="simulator"><svg class="ic"><use href="#i-play"/></svg>Attack simulator</a>
+        <a href="#/inspector" data-r="inspector"><svg class="ic"><use href="#i-code"/></svg>Payload inspector</a>
+        <div class="grp">System</div>
+        <a href="#/model" data-r="model"><svg class="ic"><use href="#i-cpu"/></svg>Model lab</a>
+        <a href="#/capture" data-r="capture"><svg class="ic"><use href="#i-radio"/></svg>Live capture</a>
+        <a href="#/settings" data-r="settings"><svg class="ic"><use href="#i-sliders"/></svg>Settings</a>
+      </nav>
+      <div class="rail-foot">
+        <div class="eng"><span class="dot" id="conn-dot"></span><span id="conn-text">Connecting</span></div>
+        <div class="faint" id="eng-meta">Loading model...</div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="top">
+        <button class="btn ghost sm menu-btn" id="menu-btn" aria-label="Toggle navigation"><svg class="ic"><use href="#i-grid"/></svg></button>
+        <div class="titles"><h1 id="title">Overview</h1><p id="subtitle" class="muted"></p></div>
+        <div class="top-r">
+          <div class="level" id="level" title="Highest severity among active incidents"><span class="ldot"></span><span id="level-t">Normal</span></div>
+          <button class="btn primary" id="run-demo"><svg class="ic"><use href="#i-play"/></svg>Run guided demo</button>
+        </div>
+      </header>
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Incident details"></aside>
+  <div id="narrator" class="narrator" hidden></div>
+  <div id="toasts" aria-live="polite"></div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/topology.js"></script>
+  <script src="/js/console.js"></script>
+  <script src="/js/views-main.js"></script>
+  <script src="/js/views-demo.js"></script>
+  <script src="/js/views-system.js"></script>
+  <script>NG.boot();</script>
+</body>
+</html>

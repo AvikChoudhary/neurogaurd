@@ -1,0 +1,5 @@
+flask>=3.0
+numpy>=1.24
+# --- optional ---
+# scapy>=2.5        # live packet capture (see README: needs Npcap on Windows, admin/root rights)
+# pandas>=2.0       # only needed to train on a real CIC-IDS2017 CSV
